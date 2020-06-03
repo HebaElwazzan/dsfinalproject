@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1514140574 source:e:\term 4\data structures i\final project\final project\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1591223052 source:e:\term 4\data structures i\final project\final project\stacks.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+
+1591223059 source:e:\term 4\data structures i\final project\final project\bst.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
