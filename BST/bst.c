@@ -125,3 +125,47 @@ void mirror(Node *node){
       mirror(node->right);
   }
 }
+
+
+Node *search(Node *root,char * key){
+    if(!root) return root;
+    if(!key){printf("Invalid search key!\n");return NULL;}
+    if(strcmp(key,root->key)<0) return search(root->left,key);
+    else if(strcmp(key,root->key)>0) return search(root->right,key);
+    else return root;
+}
+
+void fillTest(Node** root){
+    printf( "Constructing tree\n\n" );
+    char key[5] ="";
+    for(int j=1 ;j<4;j++ ){
+        memset(&key,0,5);
+        for(int i=0; i<26; i++){
+            for(int k = 0;k<j;k++) key[k]= i+'a';
+            *root= insert(*root,key);
+        }
+    }
+    printf( "\n\nTree constructed\n\n" );
+}
+
+void searchTest(Node* root){
+    char key[5] ="";
+    int failed =0;
+    for(int j=1 ;j<4;j++ ){
+        memset(&key,0,5);
+        for(int i=0; i<26; i++){
+            for(int k = 0;k<j;k++) key[k]= i+'a';
+            Node * foundNode = search(root,key);
+            if(foundNode)printf("Found Node: [target key: %s, found Key %s]\n",key,foundNode->key);
+            else {printf("failed at finding Node\n");failed++;}
+        }
+    }
+    printf( "\nsearch completed, failed %d\n",failed);
+}
+
+
+int main(void){
+    Node *root =NULL;
+    fillTest(&root);
+    searchTest(root);
+}
