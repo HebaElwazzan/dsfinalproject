@@ -29,7 +29,13 @@ void freeNode(treeNode* node)
     free(node->key);
     free(node);
 }
-
+int count(treeNode* node)
+{
+     if(node == NULL)
+	return 0;
+     else 
+	return 1 + count(node->left) + count(node->right)
+}
 treeNode* insert(treeNode* node, char *key)
 {
     if (node == NULL)
